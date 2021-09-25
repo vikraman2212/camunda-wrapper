@@ -1,7 +1,7 @@
 package org.abbf.springcamundamiddleware.handler;
 
 
-import org.abbf.springcamundamiddleware.tasks.CamundaTasksTest;
+import org.abbf.springcamundamiddleware.tasks.CamundaTasks;
 import org.json.JSONObject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
@@ -20,14 +20,14 @@ public class CamundaHttpOperations implements CamundaOperations {
 
     private final RestTemplate camundaTemplate;
 
-    private final CamundaTasksTest camundaTasks;
+    private final CamundaTasks camundaTasks;
 
     @Value("${camunda.endpoint}")
     private String camundaUrl;
 
     @Autowired
     public CamundaHttpOperations(@Qualifier("camundaRestTemplate") RestTemplate camundaTemplate,
-                                 CamundaTasksTest camundaTasks) {
+                                 CamundaTasks camundaTasks) {
         this.camundaTemplate = camundaTemplate;
         this.camundaTasks = camundaTasks;
     }
